@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Face Drawing</title>
+</head>
+<body>
+    <h1>Create Your Own Face!</h1>
+    <canvas id="myCanvas" width="700px" height="700px" style="border: 1px solid;"></canvas>
+    <br>
+    <button id="eyesButton">Change Eyes Color</button>
+    <button id="noseButton">Change Nose Color</button>
+    <button id="mouthButton">Change Mouth Color</button>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Initial face drawing
+        drawFace();
+
+        function drawFace() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw face outline
+            ctx.fillStyle = "#add8e6"; // Light blue
+            ctx.beginPath();
+            ctx.arc(300, 300, 200, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw eyes
+            ctx.fillStyle = "black";
+            ctx.fillRect(200, 250, 50, 50);
+            ctx.fillRect(350, 250, 50, 50);
+
+            // Draw nose
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(300, 320, 15, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw mouth
+            ctx.strokeStyle = "black";
+            ctx.beginPath();
+            ctx.moveTo(250, 400);
+            ctx.quadraticCurveTo(300, 430, 350, 400);
+            ctx.stroke();
+        }
+
+        // Event listeners for button clicks
+        document.getElementById("eyesButton").addEventListener("click", function () {
+            // Change eye color to green
+            ctx.fillStyle = "green";
+            ctx.fillRect(200, 250, 50, 50);
+            ctx.fillRect(350, 250, 50, 50);
+        });
+
+        document.getElementById("noseButton").addEventListener("click", function () {
+            // Change nose color to red
+            ctx.fillStyle = "red";
+            ctx.beginPath();
+            ctx.arc(300, 320, 15, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        document.getElementById("mouthButton").addEventListener("click", function () {
+            // Change mouth color to purple
+            ctx.strokeStyle = "red";
+            ctx.beginPath();
+            ctx.moveTo(250, 400);
+            ctx.quadraticCurveTo(300, 430, 350, 400);
+            ctx.stroke();
+        });
+    </script>
+</body>
+</html>

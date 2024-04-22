@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <svg height="300" width="600"> 
+            <path id="path" d="M50 50 Q300 150 550 50 z" stroke="black" fill="none"/> 
+
+            <circle cx="0" cy="0" r="5" fill="red"> 
+                <animateMotion dur="6s" repeatCount="indefinite">
+                    <mpath href="#path" />
+                </animateMotion>
+            </circle>
+        </svg>
+    </body>
+</html>

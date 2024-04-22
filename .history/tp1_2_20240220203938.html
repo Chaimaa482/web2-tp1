@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        svg {
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+        }
+        circle {
+            fill: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <svg height="300" width="600"> 
+        <path id="custom-path" d="M50 50 Q300 150 550 50 z" stroke="black" fill="none"/> 
+
+        <circle cx="0" cy="0" r="5" fill="red"> 
+            <animateMotion dur="6s" repeatCount="indefinite">
+                <mpath href="#custom-path" />
+            </animateMotion>
+        </circle>
+    </svg>
+</body>
+</html>
